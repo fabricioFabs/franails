@@ -10,11 +10,9 @@
     </head>
     <body>
     <body>
-        {% block content %}
-        {% include "homebase/header.html" %}
-        {% include "homebase/section.html" %}
-        {% include "homebase/sidebar.html" %}
-        {% include "homebase/footer.html" %}
-        {%endblock%}
+        {% block header %} {% endblock %}
+        {% block section %} {% endblock %}
+        {% block sidebar %} {% endblock %}
+        {% block footer %} {% endblock %}
     </body>
 </html>
