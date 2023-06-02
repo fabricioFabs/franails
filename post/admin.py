@@ -12,11 +12,11 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['category']
     prepopulated_fields = {'slug': ('title',)}
     
-class PostServices(admin.ModelAdmin):
-    list_display = ['title', 'category', 'updated_at', 'image_table']
+class ServicesAdmin(admin.ModelAdmin):
+    list_display = ['title', 'category', 'updated_at', 'image_table', 'price']
     list_filter = ['category']
     prepopulated_fields = {'slug': ('title',)}
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
-admin.site.register(Services, PostServices)
+admin.site.register(Services, ServicesAdmin)

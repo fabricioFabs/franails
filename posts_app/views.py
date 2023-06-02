@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from post .models import Post
+from post .models import Post, Services
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 
@@ -10,7 +10,7 @@ def inicio(request):
     
 def post_list(request):
     template_name = 'paginas/post-list.html'
-    post = Post.objects.all()
+    post = Services.objects.all()
     context = {
         'post':post
         }
