@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block title %}Lista de postagens {% endblock %}
+{% block content %}
+  <h1>add post</h1>
+  {% for services in post %}
+    <p>title: {{services.title}}</p>
+    <img src="{{services.image.url}}" width="150" alt ="{{post.title}}">
+    
+    <p>descrição</p>
+    <p>{{services.title}}</p>
+    <br>
+  {% endfor %}
+{% endblock content %}
+

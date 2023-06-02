@@ -33,14 +33,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
+    
     def image_table(self):  
         if self.image:
             return mark_safe('<img src="{}" height="50" />'.format(self.image.url))
         else:
-<<<<<<< HEAD
-            return mark_safe('<p>Sem imagem</p>')        
-=======
+
             return mark_safe('<p>Sem imagem</p>')        
 
 class Services(models.Model):
@@ -67,5 +65,3 @@ class Services(models.Model):
         else:
             return mark_safe('<p>Sem imagem</p>')     
     
-    
->>>>>>> 5592fd6 (initial commit)

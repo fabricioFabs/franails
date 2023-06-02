@@ -10,9 +10,13 @@
     </head>
     <body>
     <body>
-        {% block header %} {% endblock %}
-        {% block section %} {% endblock %}
-        {% block sidebar %} {% endblock %}
-        {% block footer %} {% endblock %}
+        {% block title %}<title> </title>{% endblock %}
+		{% block header %} {% endblock %}  
+        {% block article %}{% endblock %} 
+		{% block sidebar %}{% endblock %} 
+		{% block footer %}{% endblock %} 
+        {% block content %}
+
+        {% endblock %} 
     </body>
 </html>
