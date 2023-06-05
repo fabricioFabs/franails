@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
-
-{% block header %}  {% include 'header.html' %} {% endblock %} 
+{% block content %}
+{% block header %}  {% include 'header.html' %} {% endblock %}  
 <div class="container">
     <div class="post"> 
         {% block sidebar %}  {% include 'sidebar.html' %} {% endblock %}
@@ -10,3 +10,8 @@
         {% endfor %}
     </div>    
 </div>
+<a href="{% url 'post-create' %}">  
+  <div class="botao">
+    <div class="button">criar post</div> <br><br>
+  </div>
+{% endblock content %}

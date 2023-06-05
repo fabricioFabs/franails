@@ -4,8 +4,9 @@ from post .models import Post
 
 urlpatterns = [
     path('', views.inicio, name='homebase'),
+    path('home', views.home, name= 'home'),
     path('post-create', views.post_create, name='post-create'),
-    path('paginas/post-list.html', views.post_list, name='post-list'),
+    path('post-list', views.post_list, name='post-list'),
     path('post-detail/<int:id>/', views.post_detail, name='post-detail'),
     path('post-delete/<int:id>/', views.post_delete, name='post-delete'),
 ]
