@@ -8,10 +8,7 @@
         {% for post in post %}
           {% block article %} {% include 'article.html' %} {% endblock %}
         {% endfor %}
+        {% block footer %}  {% include 'footer.html' %} {% endblock %}
     </div>    
 </div>
-<a href="{% url 'post-create' %}">  
-  <div class="botao">
-    <div class="button">criar post</div> <br><br>
-  </div>
 {% endblock content %}

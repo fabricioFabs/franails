@@ -2,6 +2,7 @@
 {% block title %}criar/atualizar postagens </button>{% endblock %}
 
 {% block content %}
+<div class="form">
     <form method="Post"
         action="{% if request.method == 'Post' %}{% url 'post-create' %}{% endif %}"
         enctype="multipart/form-data">
@@ -10,4 +11,5 @@
         {{ form.as_p }}<br>
         <button type="submit">Criar</button>
     </form>
+</div>
 {% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block title %} Lista de postagens {% endblock %}
+{% block content %}
+{% block header %}  {% include 'header.html' %} {% endblock %} 
+  <div class="container">
+    <div class="post"> 
+        {% for post in post %}
+          {% block article %} {% include 'article.html' %} {% endblock %}  
+        
+          <a href="{% url 'post-delete' post.id %}"> <button type="button" class="btn btn-success">deletar</button></a>
+          <a href="{% url 'post-update' post.id %}"> <button type="button" class="btn btn-success"> Atualizar </button></a>
+        {% endfor %}
+    </div>    
+  </div>
+  <a href="{% url 'post-create' %}">  
+    <div class="botao">
+      <div class="button">criar post</div> <br><br>
+    </div>
+{% block footer %}  {% include 'footer.html' %} {% endblock %}
+{% endblock content %}
+

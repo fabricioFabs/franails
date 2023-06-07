@@ -1,31 +1,21 @@
 {% extends 'index.html' %}
 
+
 {% block content %}
 
 {% block header %}  {% include 'header.html' %} {% endblock %} 
-
-<a href="% url 'post-create' %">cria post</a>
+<div class="postlist">
   <div class="title">
-    <h1>serviços-cortes</h1>
+  {% block title %} <h2>LISTA DE POSTAGENS</h2>{% endblock %}
   </div>
-    
-      {% for services in post %}
-      <div class="container-post">
-        <div class="container-content">
-          <img src="{{services.image.url}}" width="500" alt ="{{post.title}}">
-          <p>titulo: {{services.title}}</p>
-          <p>preço: {{services.price}}</p>
-        </div>
-      </div>
-        <br>
-      
-      {% endfor %}
-
-      <a href="{% url 'post-create' %}">  
-      <div class="botao">
-        <div class="button">criar post</div> <br><br>
-      </div>
-
+</div>
+<div class="post-list">
+  {% for post in post %}
+    <div class="post"> 
+      {% block article %} {% include 'article.html' %} {% endblock %}
+    </div>  
+  {% endfor %}      
+</div>
+{% block footer %}  {% include 'footer.html' %} {% endblock %}
 {% endblock content %}
-
 

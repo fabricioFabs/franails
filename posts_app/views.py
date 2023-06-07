@@ -5,6 +5,8 @@ from django.contrib import messages
 from post .forms import PostsForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+
 
 # Create your views here.
 def inicio(request):
@@ -15,7 +17,7 @@ def home(request):
       
 def post_list(request):
     template_name = 'paginas/post-list.html'
-    post = Post.objects.all()
+    post = Post.objects.order_by('id')[:4]
     context = {
         'post':post
         }
@@ -43,7 +45,7 @@ def post_create(request):
     return render(request, 'post-form.html', {"form": form})
 
 def post_update(request, id):
-    post = get_object_or_404(Posts, id=id)
+    post = get_object_or_404(Post, id=id)
     form = PostsForm(request.POST or None, request.FILES or None, instance=post)
     if form.is_valid():
             form.save()
@@ -61,7 +63,7 @@ def post_delete(request, id):
     return render(request, 'post-delete.html')
 
 def post_config(request):
-    template_name = 'post-config.html'
+    template_name = 'paginas/post-config.html'
     post = Post.objects.all()
     context = {
         'post':post
