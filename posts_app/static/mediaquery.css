@@ -1,0 +1,19 @@
+@media screen and (max-width: 600px){
+    main{
+        max-width: 300px;
+    }
+
+    .section-servicos{
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .section-servicos-container{
+        
+        display: flex;
+        flex-flow: column wrap;
+        position: static;
+    }
+}

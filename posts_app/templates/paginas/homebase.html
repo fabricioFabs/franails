@@ -3,11 +3,8 @@
 {% block content %}
 {% block header %}  {% include 'header.html' %} {% endblock %}  
 <div class="container">
-    <div class="post"> 
-        {% block sidebar %}  {% include 'sidebar.html' %} {% endblock %}
-        {% for post in post %}
-          {% block article %} {% include 'article.html' %} {% endblock %}
-        {% endfor %}
+    <div class="post">   
+          {% block section %} {% include 'section.html' %} {% endblock %}
         {% block footer %}  {% include 'footer.html' %} {% endblock %}
     </div>    
 </div>
