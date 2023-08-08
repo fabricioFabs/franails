@@ -12,14 +12,22 @@ export-env {
     }
 
     def has-env [name: string] {
+<<<<<<< HEAD
         $name in (env).name
+=======
+        $name in $env
+>>>>>>> ffd885b8 (iii)
     }
 
     # Emulates a `test -z`, but btter as it handles e.g 'false'
     def is-env-true [name: string] {
       if (has-env $name) {
         # Try to parse 'true', '0', '1', and fail if not convertible
+<<<<<<< HEAD
         let parsed = do -i { $env | get $name | into bool }
+=======
+        let parsed = (do -i { $env | get $name | into bool })
+>>>>>>> ffd885b8 (iii)
         if ($parsed | describe) == 'bool' {
           $parsed
         } else {
@@ -31,10 +39,17 @@ export-env {
     }
 
     let is_windows = ($nu.os-info.name | str downcase) == 'windows'
+<<<<<<< HEAD
     let virtual_env = '/home/fabricio/Documentos/porra/blog'
     let bin = 'bin'
     let path_sep = (char esep)
     let path_name = if $is_windows {
+=======
+    let virtual_env = '/home/fabricio/Documentos/blog'
+    let bin = 'bin'
+    let path_sep = (char esep)
+    let path_name = (if $is_windows {
+>>>>>>> ffd885b8 (iii)
         if (has-env 'Path') {
             'Path'
         } else {
@@ -42,7 +57,11 @@ export-env {
         }
     } else {
         'PATH'
+<<<<<<< HEAD
     }
+=======
+    })
+>>>>>>> ffd885b8 (iii)
 
     let old_path = (
         if $is_windows {
@@ -62,13 +81,18 @@ export-env {
     )
 
     let venv_path = ([$virtual_env $bin] | path join)
+<<<<<<< HEAD
     let new_path = ($old_path | prepend $venv_path | str collect $path_sep)
+=======
+    let new_path = ($old_path | prepend $venv_path | str join $path_sep)
+>>>>>>> ffd885b8 (iii)
 
     let new_env = {
         $path_name  : $new_path
         VIRTUAL_ENV : $virtual_env
     }
 
+<<<<<<< HEAD
     let new_env = if (is-env-true 'VIRTUAL_ENV_DISABLE_PROMPT') {
       $new_env
     } else {
@@ -81,6 +105,20 @@ export-env {
 
       # Back up the old prompt builder
       let old_prompt_command = if (has-env 'VIRTUAL_ENV') and (has-env '_OLD_PROMPT_COMMAND') {
+=======
+    let new_env = (if (is-env-true 'VIRTUAL_ENV_DISABLE_PROMPT') {
+      $new_env
+    } else {
+      # Creating the new prompt for the session
+      let virtual_prompt = (if ('' == '') {
+          $'(char lparen)($virtual_env | path basename)(char rparen) '
+      } else {
+          '() '
+      })
+
+      # Back up the old prompt builder
+      let old_prompt_command = (if (has-env 'VIRTUAL_ENV') and (has-env '_OLD_PROMPT_COMMAND') {
+>>>>>>> ffd885b8 (iii)
           $env._OLD_PROMPT_COMMAND
       } else {
           if (has-env 'PROMPT_COMMAND') {
@@ -88,6 +126,7 @@ export-env {
           } else {
               ''
           }
+<<<<<<< HEAD
       }
 
       # If there is no default prompt, then only the env is printed in the prompt
@@ -103,11 +142,32 @@ export-env {
 
       $new_env | merge {
         _OLD_VIRTUAL_PATH   : ($old_path | str collect $path_sep)
+=======
+      })
+
+      # If there is no default prompt, then only the env is printed in the prompt
+      let new_prompt = (if (has-env 'PROMPT_COMMAND') {
+          if 'closure' in ($old_prompt_command | describe) {
+              {|| $'($virtual_prompt)(do $old_prompt_command)' }
+          } else {
+              {|| $'($virtual_prompt)($old_prompt_command)' }
+          }
+      } else {
+          {|| $'($virtual_prompt)' }
+      })
+
+      $new_env | merge {
+        _OLD_VIRTUAL_PATH   : ($old_path | str join $path_sep)
+>>>>>>> ffd885b8 (iii)
         _OLD_PROMPT_COMMAND : $old_prompt_command
         PROMPT_COMMAND      : $new_prompt
         VIRTUAL_PROMPT      : $virtual_prompt
       }
+<<<<<<< HEAD
     }
+=======
+    })
+>>>>>>> ffd885b8 (iii)
 
     # Environment variables that will be loaded as the virtual env
     load-env $new_env

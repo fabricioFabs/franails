@@ -44,7 +44,11 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
+<<<<<<< HEAD
 VIRTUAL_ENV='/home/fabricio/Documentos/porra/blog'
+=======
+VIRTUAL_ENV='/home/fabricio/Documentos/blog'
+>>>>>>> ffd885b8 (iii)
 if ([ "$OSTYPE" = "cygwin" ] || [ "$OSTYPE" = "msys" ]) && $(command -v cygpath &> /dev/null) ; then
     VIRTUAL_ENV=$(cygpath -u "$VIRTUAL_ENV")
 fi

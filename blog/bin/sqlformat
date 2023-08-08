@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/home/fabricio/Documentos/porra/blog/bin/python
+=======
+#!/home/fabricio/Documentos/blog/bin/python
+>>>>>>> ffd885b8 (iii)
 # -*- coding: utf-8 -*-
 import re
 import sys

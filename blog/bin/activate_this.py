@@ -4,6 +4,11 @@ Use exec(open(this_file).read(), {'__file__': this_file}).
 
 This can be used when you must use an existing Python interpreter, not the virtualenv bin/python.
 """
+<<<<<<< HEAD
+=======
+from __future__ import annotations
+
+>>>>>>> ffd885b8 (iii)
 import os
 import site
 import sys
